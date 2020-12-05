@@ -1,8 +1,13 @@
 """
 CNN-DQN based RL agent for Pong
 
-Requirements:
+Requirements (model training):
 - pytorch
+- gym
+- matplotlib
+- numpy
+- pillow
+- opencv-python
 """
 
 import torch
@@ -31,7 +36,7 @@ class Agent:
     LR = 1e-4
 
     # Common interface for both training and testing
-    # supports 0 (frames are summed to each other rather than stacked), 2 of 4 frame stacking
+    # supports 0 (frames are summed to each other rather than stacked), 2 or 4 frame stacking
 
     def __init__(   self, training=False, batch_size=64, gamma=0.99, memory_size=15000, \
                     stack_frames=4, downscale=True, priority_memory=True):
